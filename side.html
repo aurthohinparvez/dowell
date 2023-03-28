@@ -1,0 +1,103 @@
+<!-- The parent page -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Chat Window</title>
+
+        </head>
+        <body>
+            <div>
+                <button onclick="toggleChat()" class="chat-btn">
+                    <i class="material-icons" style="position: relative;top: 3px;"> dowell </i>
+                </button>
+
+
+                <div id="chat-container" style="display:none">
+                    <div role="none" class="_94ve">
+                        <div class="_94vf _9pmv" role="none">
+                            <div class="">
+                                <div class="welcomePageModalSheetContent">
+                                    <div class="_a2zp">
+                                        <div class="_4cqr">
+                                            <img class="_a3jw img" src="https://scontent.fidr1-1.fna.fbcdn.net/v/t39.30808-1/291869207_470658575066231_4295001904481344669_n.jpg?stp=cp0_dst-jpg_p80x80&amp;_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=05dcb7&amp;_nc_ohc=cDFzSvSOIWsAX9QsUab&amp;_nc_ht=scontent.fidr1-1.fna&amp;edm=AB2cVo4EAAAA&amp;oh=00_AfD9pd0vqKAQukVXlOIvD0eZI1MUmg1KKmnJE7cdKb3ZaQ&amp;oe=6410A5C8" alt="">
+                                            <div class="_a2gl _a7a3"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                <div class="_9dxh"></div>
+
+                                <div class="_9dzn">
+                                    <div>
+                                        <div class="_9q4i">
+                                            <div class="_a3x9">
+                                                <div aria-label="close" class="x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x3nfvp2 x1q0g3np x87ps6o x1lku1pv x1a2a7pz" role="button" tabindex="0">
+                                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z" fill="black" fill-opacity="0.04"></path><path d="M22.0278 15.0278C22.5647 15.0278 23 15.4631 23 16.0001C23 16.537 22.5647 16.9723 22.0278 16.9723L9.97222 16.9723C9.43528 16.9723 9 16.537 9 16.0001C9 15.4631 9.43528 15.0278 9.97222 15.0278L22.0278 15.0278Z" fill="black"></path></svg>
+                                                    <div class="x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x1ey2m1c xds687c xg01cxk x47corl x10l6tqk x17qophe x13vifvy x1ebt8du x19991ni x1dhq9h x1wpzbip" data-visualcompletion="ignore">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="chat-content-div" style="border-top: 2px solid #d7cf99;" >
+
+
+                                <div class="_a2zr _3qn7 _61-0 _2fyi _3qng">
+                                    <div class="_4ik4 _4ik5" style="-webkit-line-clamp: 1;">
+                                        <strong>Chat with Customer Stories</strong>
+                                    </div>
+                                </div>
+                                <div class="_a2zs _4ik4 _4ik5" style="-webkit-line-clamp: 1;"></div>
+                                <div class="_a2zt _a6s6 _4ik4 _4ik5" style="-webkit-line-clamp: 3;">Hi! How can we help you?</div>
+                                <div class="_9l4n">
+                                    <div class="_a6s8">
+                                        <div id="chat-now-btn" class="_a6s9">
+                                            <div class="_a2zm" style="background-color: rgb(10, 124, 255);" tabindex="0" role="button">
+                                                <span class="continueText _4mr9 _6i6a">Chat now</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="_9zb3"><span class="_9zb4"><i alt="" data-visualcompletion="css-img" class="img sp_fzxSMeFGPL0 sx_5c4798"></i></span>Powered by Dowell</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    {{ product|json_script:"product" }}
+    {{ session_id|json_script:"session_id" }}
+    <script>
+      function toggleChat() {
+        var chat = document.getElementById("chat-container");
+        chat.style.display = chat.style.display == "none" ? "block" : "none";
+      }
+
+        window.onload = () => {
+            const chatNowBtn = document.getElementById('chat-now-btn');
+            chatNowBtn.onclick = () => {
+                const contentDiv = document.getElementById('chat-content-div');
+                const product = JSON.parse(document.getElementById('product').textContent);
+                const session_id = JSON.parse(document.getElementById('session_id').textContent);
+                const greetContent = contentDiv.innerHTML;
+                contentDiv.innerHTML = `<iframe style="width: 100%;height: 270px;border: none;" src="https://100096.pythonanywhere.com/chat-box/Workflow-AI${product}/?session_id=36ht78fmzfzgovk1lq5rqeozkpees1qi${session_id}" title="Dowell Chat"></iframe>`
+
+            };
+        };
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
+    <script src="{% static 'main.js' %}"></script>
+
+    </div>
+  </body>
+</html>
